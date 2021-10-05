@@ -1,9 +1,17 @@
-import React from 'react';
-import {View} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, Button} from 'react-native';
 
 const MyScreen = () => {
-  const style = {backgroundColor: 'black'};
-  return <View style={style} />;
+  const [status, setStatus] = useState('');
+  return (
+    <View>
+      <Text testID="myText">{status}</Text>
+      <Button
+        testID="myButton"
+        onPress={() => setStatus('button pressed')}
+        title="PressMe"></Button>
+    </View>
+  );
 };
 
 export default MyScreen;
