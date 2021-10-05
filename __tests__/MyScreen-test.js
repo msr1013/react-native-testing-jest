@@ -8,12 +8,9 @@ test('snapshot', () => {
   expect(tree).toMatchSnapshot();
 });
 
-test('button press', () => {
-  //press the button
-  const button = tree.root.findByProps({testID: 'myButton'}).props;
-  act(() => button.onPress());
+test('call timeout', () => {
+  act(() => jest.runAllTimers());
 
-  //expect text to equal "button pressed"
   const text = tree.root.findByProps({testID: 'myText'}).props;
-  expect(text.children).toEqual('button pressed');
+  expect(text.children).toEqual('timeout is called');
 });
